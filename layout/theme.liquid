@@ -7,6 +7,12 @@
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
 
+    {% comment %}
+      this is jost font
+    {% endcomment %}
+    {{ 'https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap' | stylesheet_tag }}
+
+
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
@@ -373,4 +379,11 @@
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
   </body>
+
+  {% comment %}
+ This is a placeholder for the banner and grid section CSS.
+{% endcomment %}
+  {{ 'banner.css' | asset_url | stylesheet_tag }}
+  {{ 'grid.css' | asset_url | stylesheet_tag }}
+
 </html>

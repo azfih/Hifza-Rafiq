@@ -1,0 +1,106 @@
+
+<section class="banner">
+  <header>
+    <div class="bannertitle">
+      <span class="banner__title1">
+        {{ section.settings.title1 }}
+      </span>
+      <span class="banner__title2">
+        {{ section.settings.title2 }}
+      </span>
+    </div>
+    <div class="bannerdescription">
+      <p class="banner__description">
+        {{ section.settings.description1 }}
+      </p>
+    </div>
+    <div class="banner__button">
+      <a href="{{ section.settings.button_link }}" class="btn btn--primary">
+        {{ section.settings.button_text1 }}
+      </a>
+    </div>
+  </header>
+  <body class="banner__body">
+  <div class="banner__image">
+    <img class="banner__image1" src="{{ 'banner_image.svg' | asset_url }}" alt="Banner 1">
+  </div>
+  <div class="banner__imagewithtext">
+    <div class="banner__text">
+      <h1 class="banner__text-title">
+        {{ section.settings.title3 }}
+      </h1>
+      <p class="banner__text-content">
+        {{ section.settings.description2 }}
+      </p>
+      <div class="banner__button">
+      <a href="{{ section.settings.button_link2 }}" class="btn btn--secondary">
+        {{ section.settings.button_text2 }}
+      </a>
+    </div>
+    </div>
+    <img class="banner__image2" src="{{ 'banner_image.svg' | asset_url }}" alt="Banner 2">
+  </div>
+  </body>
+  
+</section>
+{% schema %}
+{
+  "name": "Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title1",
+      "label": "Title",
+      "default": "Tisso"
+    },
+    {
+      "type": "text",
+      "id": "title2",
+      "label": "Subtitle",
+      "default": "Vision"
+    },
+    {
+      "type": "textarea",
+      "id": "description1",
+      "label": "Description1",
+      "default": "Find the ideal gift for your loved ones."
+    },
+    {
+      "type": "url",
+      "id": "button_link1",
+      "label": "Button Link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "text",
+      "id": "button_text1",
+      "label": "Button Text",
+      "default": "Choose Gift"
+    },
+    {
+      "type": "text",
+      "id": "title3",
+      "label": "Title",
+      "default": "The Gift Guide"
+    },
+    {
+      "type": "textarea",
+      "id": "description2",
+      "label": "Description2",
+      "default": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season."
+    },
+    {
+      "type": "url",
+      "id": "button_link2",
+      "label": "Button Link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "text",
+      "id": "button_text2",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+  ]
+}
+{% endschema %}

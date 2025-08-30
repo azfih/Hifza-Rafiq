@@ -1,0 +1,23 @@
+<div class="text mb-6">
+  <p>Tisso Vision in the wild</p>
+</div>
+
+<div class="grid grid-cols-3 gap-6">
+  {% for product in collections['tisso-vision'].products %}
+    <div class="product-item relative">
+      <!-- Product image -->
+      <a href="{{ product.url }}" class="block">
+        <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}">
+      </a>
+
+      <!-- Plus sign overlay -->
+      <a href="{{ product.url }}" class="plus-icon absolute top-2 right-2">
+        {% render 'icon-plus' %}
+      </a>
+
+      <!-- Product details -->
+      <p class="mt-2">{{ product.title }}</p>
+      <p>{{ product.price | money }}</p>
+    </div>
+  {% endfor %}
+</div>

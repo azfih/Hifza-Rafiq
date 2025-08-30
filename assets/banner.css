@@ -1,0 +1,129 @@
+/* Banner Section Styles */
+.banner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.banner header {
+  width: 1440px;
+  height: 64px;
+  gap: 360px;
+  transform: rotate(0deg);
+  opacity: 1;
+  padding: 10px 50px;
+  background: #F5F5F5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bannertitle {
+  width: 151.44px;
+  height: 19px;
+  transform: rotate(0deg);
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  gap: 12.35px; /* Space between title1 and title2 based on left positions */
+}
+
+.banner__title1 {
+  width: 64.31px;
+  height: 18.82px;
+  transform: rotate(0deg);
+  opacity: 1;
+  color: black;
+  font-size: 16px;
+  line-height: 18.82px;
+  margin: 0;
+  padding: 0;
+}
+
+.banner__title2 {
+  width: 74.79px;
+  height: 19px;
+  transform: rotate(0deg);
+  opacity: 1;
+  color: black;
+  font-size: 16px;
+  line-height: 19px;
+  margin: 0;
+  padding: 0;
+}
+
+.bannerdescription {
+  width: 260px;
+  height: 14px;
+  transform: rotate(0deg);
+  opacity: 1;
+}
+
+.banner__description {
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 13.42px;
+  letter-spacing: 0px;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+}
+
+.banner__button {
+  display: flex;
+  align-items: center;
+}
+
+/* Button styles (add as needed) */
+.btn {
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.btn--primary {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #007bff;
+}
+
+.btn--primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.banner__text-title {
+  font-family: "Jost", sans-serif;
+  font-weight: 500;          /* Medium weight in Jost */
+  font-style: normal;        /* "Medium" in Figma = weight, not style */
+  font-size: 70px;
+  line-height: 100%;         /* 70px since font-size is 70px */
+  letter-spacing: 0px;       /* no extra spacing */
+  vertical-align: middle;
+  color: #000000;            /* black text */
+  
+  /* Layout (from Figma frame values) */
+  width: 459px;              /* fixed width */
+  height: 70px;              /* fixed height */
+  position: absolute;        /* to use top/left placement */
+  top: 489px;
+  left: 67px;
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1440px) {
+  .banner header {
+    width: 100%;
+    padding: 10px 20px;
+  }
+  
+  .bannertitle,
+  .bannerdescription {
+    flex-shrink: 0;
+  }
+}
