@@ -73,8 +73,9 @@
 .banner__body {
   position: relative;
   width: 100%;
-  height: 844px; /* Total height to accommodate both sections */
+  height: 700px; /* Adjusted total height */
   overflow: hidden;
+  background: #f8f8f8; /* Light background */
 }
 
 /* Top Section - Red Outline Position */
@@ -83,14 +84,14 @@
   top: 0; /* Right after 64px header - RED OUTLINE POSITION */
   left: 0;
   width: 100%;
-  height: 390px;
+  height: 280px; /* Reduced height so text area is more visible */
   z-index: 1;
 }
 
 .banner__image-primary {
   width: 1440px;
   max-width: 100%;
-  height: 390px;
+  height: 280px;
   object-fit: cover;
   opacity: 1;
   display: block;
@@ -99,17 +100,17 @@
 /* Bottom Section - Content Area */
 .banner__content-overlay {
   position: absolute;
-  top: 300px; /* Overlapping with top image */
+  top: 200px; /* Start overlapping with top image */
   left: 0;
   width: 100%;
-  height: 544px;
+  height: 500px;
   z-index: 5;
-  background: transparent; /* No background to allow overlap */
+  background: transparent;
 }
 
 /* Text Content Box - Blue Outline Position */
 .banner__text-container {
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
   border-radius: 12px;
   padding: 40px 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -119,14 +120,14 @@
   justify-content: center;
   min-height: 300px;
   position: absolute;
-  left: 67px; /* BLUE OUTLINE POSITION - Left side */
-  top: 50px;
-  z-index: 10;
+  left: 50px; /* BLUE OUTLINE POSITION - Left side */
+  top: 80px;
+  z-index: 15; /* Higher z-index to stay above everything */
 }
 
 .banner__main-title {
   font-weight: 500;
-  font-size: 70px;
+  font-size: 60px; /* Slightly smaller to fit better */
   line-height: 100%;
   color: #000000;
   margin: 0 0 20px 0;
@@ -147,15 +148,15 @@
 
 /* Secondary Image - Green Outline Position (SAME IMAGE) */
 .banner__image-secondary {
-  width: 890px;
-  height: 402px;
+  width: 700px; /* Adjusted size to fit better */
+  height: 350px;
   object-fit: cover;
   border-radius: 8px;
-  opacity: 1;
+  opacity: 0.9;
   position: absolute;
-  top: 142px; /* GREEN OUTLINE POSITION */
-  left: 550px; /* GREEN OUTLINE POSITION - Right side */
-  z-index: 2; /* Below text but above background */
+  top: 120px; /* GREEN OUTLINE POSITION */
+  right: 50px; /* Use right positioning instead of left for better control */
+  z-index: 10; /* Above background but below text */
 }
 
 /* ========================================
