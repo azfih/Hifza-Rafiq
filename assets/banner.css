@@ -1,135 +1,341 @@
-/* Banner Section Styles */
+/* ========================================
+   BANNER SECTION STYLES
+   ======================================== */
+
+/* Main Banner Container */
 .banner {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
+  position: relative;
+  font-family: 'Jost', sans-serif;
 }
 
-.banner header {
-  width: 1440px;
+/* ========================================
+   HEADER SECTION
+   ======================================== */
+
+.banner__header {
+  width: 100%;
   height: 64px;
-  gap: 360px;
-  transform: rotate(0deg);
-  opacity: 1;
   padding: 10px 50px;
-  background: #F5F5F5;
+  background-color: #F5F5F5;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  z-index: 10;
 }
 
-.bannertitle {
-  width: 151.44px;
-  height: 19px;
-  transform: rotate(0deg);
-  opacity: 1;
+/* Header Title Section */
+.banner__title-group {
   display: flex;
   align-items: center;
-  gap: 12.35px; /* Space between title1 and title2 based on left positions */
+  gap: 12px;
 }
 
-.banner__title1 {
-  width: 64.31px;
-  height: 18.82px;
-  transform: rotate(0deg);
-  opacity: 1;
-  color: black;
+.banner__title-primary,
+.banner__title-secondary {
+  color: #000000;
   font-size: 16px;
-  line-height: 18.82px;
+  font-weight: 500;
+  line-height: 1.2;
   margin: 0;
   padding: 0;
 }
 
-.banner__title2 {
-  width: 74.79px;
-  height: 19px;
-  transform: rotate(0deg);
-  opacity: 1;
-  color: black;
-  font-size: 16px;
-  line-height: 19px;
-  margin: 0;
-  padding: 0;
-}
-
-.bannerdescription {
-  width: 260px;
-  height: 14px;
-  transform: rotate(0deg);
-  opacity: 1;
-}
-
-.banner__description {
-  font-family: 'Jost', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 16px;
-  line-height: 13.42px;
-  letter-spacing: 0px;
+/* Header Description */
+.banner__header-description {
+  flex: 1;
   text-align: center;
-  vertical-align: middle;
+  margin: 0 20px;
+}
+
+.banner__description-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #000000;
   margin: 0;
   padding: 0;
 }
 
-.banner__button {
+/* Header Button Container */
+.banner__header-button {
   display: flex;
   align-items: center;
 }
-.banner__image{
-    width: 1440;
-    height: 390;
-    top: 64px;
-    opacity: 1;
+
+/* ========================================
+   MAIN CONTENT SECTION
+   ======================================== */
+
+.banner__body {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
 }
 
-/* Button styles (add as needed) */
+/* Background Image - Full Width */
+.banner__background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.banner__image-primary {
+  width: 1440px;
+  max-width: 100%;
+  height: 390px;
+  object-fit: cover;
+  opacity: 1;
+  display: block;
+}
+
+/* Content Overlay Section */
+.banner__content-overlay {
+  position: absolute;
+  top: 177px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  z-index: 5;
+  padding: 0 67px;
+  gap: 50px;
+}
+
+/* Text Content Box */
+.banner__text-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 300px;
+  position: relative;
+}
+
+.banner__main-title {
+  font-weight: 500;
+  font-size: 70px;
+  line-height: 100%;
+  color: #000000;
+  margin: 0 0 20px 0;
+  letter-spacing: 0;
+}
+
+.banner__main-description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #666666;
+  margin: 0 0 30px 0;
+}
+
+.banner__text-button {
+  align-self: flex-start;
+}
+
+/* Secondary Image - Right Side */
+.banner__image-secondary {
+  width: 435.3px;
+  height: 293px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+  opacity: 1;
+}
+
+/* ========================================
+   BUTTON STYLES
+   ======================================== */
+
 .btn {
-  padding: 8px 16px;
+  padding: 12px 24px;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 6px;
   transition: all 0.3s ease;
+  font-family: "Jost", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .btn--primary {
-  background-color: #007bff;
-  color: white;
-  border: 1px solid #007bff;
+  background-color: #FFD700;
+  color: #000000;
+  border: 1px solid #FFD700;
 }
 
 .btn--primary:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
+  background-color: #FFC107;
+  border-color: #FFC107;
+  transform: translateY(-1px);
 }
 
-.banner__text-title {
-  font-family: "Jost", sans-serif;
-  font-weight: 500;          /* Medium weight in Jost */
-  font-style: normal;        /* "Medium" in Figma = weight, not style */
-  font-size: 70px;
-  line-height: 100%;         /* 70px since font-size is 70px */
-  letter-spacing: 0px;       /* no extra spacing */
-  vertical-align: middle;
-  color: #000000;            /* black text */
-  
-  /* Layout (from Figma frame values) */
-  width: 459px;              /* fixed width */
-  height: 70px;              /* fixed height */
-  position: absolute;        /* to use top/left placement */
-  top: 489px;
-  left: 67px;
-  opacity: 1;
+.btn--secondary {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
 }
 
-/* Responsive adjustments */
+.btn--secondary:hover {
+  background-color: #333333;
+  border-color: #333333;
+  transform: translateY(-1px);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablet Styles */
 @media (max-width: 1440px) {
-  .banner header {
-    width: 100%;
-    padding: 10px 20px;
+  .banner__header {
+    padding: 10px 30px;
   }
   
-  .bannertitle,
-  .bannerdescription {
-    flex-shrink: 0;
+  .banner__content-overlay {
+    padding: 0 30px;
+  }
+  
+  .banner__image-primary {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .banner__content-overlay {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    top: 120px;
+  }
+  
+  .banner__text-container {
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .banner__main-title {
+    font-size: 50px;
+  }
+  
+  .banner__image-secondary {
+    width: 100%;
+    max-width: 435px;
+    height: auto;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .banner__header {
+    flex-direction: column;
+    height: auto;
+    gap: 15px;
+    padding: 20px 15px;
+  }
+  
+  .banner__title-group {
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+  }
+  
+  .banner__header-description {
+    margin: 0;
+    order: 1;
+  }
+  
+  .banner__header-button {
+    order: 2;
+  }
+  
+  .banner__body {
+    height: auto;
+    min-height: 500px;
+  }
+  
+  .banner__content-overlay {
+    position: relative;
+    top: 50px;
+    padding: 0 15px;
+  }
+  
+  .banner__text-container {
+    padding: 30px 20px;
+    min-height: auto;
+  }
+  
+  .banner__main-title {
+    font-size: 36px;
+    line-height: 1.1;
+  }
+  
+  .banner__main-description {
+    font-size: 14px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+  .banner__header {
+    padding: 15px 10px;
+  }
+  
+  .banner__content-overlay {
+    padding: 0 10px;
+  }
+  
+  .banner__main-title {
+    font-size: 28px;
+  }
+  
+  .banner__text-container {
+    padding: 25px 15px;
+  }
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+/* Hide elements on specific screen sizes if needed */
+.hide-mobile {
+  display: block;
+}
+
+.hide-desktop {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none;
+  }
+  
+  .hide-desktop {
+    display: block;
   }
 }

@@ -1,106 +1,241 @@
+{% comment %}
+  ========================================
+  BANNER SECTION TEMPLATE
+  ========================================
+  
+  Purpose: Main banner section with header navigation and hero content
+  Features: 
+  - Responsive header with title, description, and CTA
+  - Full-width background image
+  - Text content box with main CTA
+  - Secondary promotional image
+  
+  Dependencies: banner.css stylesheet
+  
+  Schema Settings:
+  - title1, title2: Header brand name
+  - description1: Header description text
+  - button_link1, button_text1: Header CTA
+  - title3: Main hero title
+  - description2: Main hero description
+  - button_link2, button_text2: Main CTA
+  ========================================
+{% endcomment %}
 
-<section class="banner">
-  <header>
-    <div class="bannertitle">
-      <span class="banner__title1">
-        {{ section.settings.title1 }}
-      </span>
-      <span class="banner__title2">
-        {{ section.settings.title2 }}
-      </span>
+{%- comment -%} Assign default values for better error handling {%- endcomment -%}
+{%- assign header_title_1 = section.settings.title1 | default: 'Tisso' -%}
+{%- assign header_title_2 = section.settings.title2 | default: 'Vision' -%}
+{%- assign header_description = section.settings.description1 | default: 'Find the ideal gift for your loved ones.' -%}
+{%- assign header_button_link = section.settings.button_link1 | default: '/collections/all' -%}
+{%- assign header_button_text = section.settings.button_text1 | default: 'Choose Gift' -%}
+{%- assign main_title = section.settings.title3 | default: 'The Gift Guide' -%}
+{%- assign main_description = section.settings.description2 | default: 'Discover Joy: Your Ultimate Holiday Gift Destination.' -%}
+{%- assign main_button_link = section.settings.button_link2 | default: '/collections/all' -%}
+{%- assign main_button_text = section.settings.button_text2 | default: 'Shop Now' -%}
+
+{%- comment -%} Main Banner Section {%- endcomment -%}
+<section class="banner" 
+         id="banner-{{ section.id }}" 
+         data-section-type="banner" 
+         data-section-id="{{ section.id }}">
+  
+  {%- comment -%} Header Navigation Bar {%- endcomment -%}
+  <header class="banner__header" role="banner">
+    
+    {%- comment -%} Brand Title Group {%- endcomment -%}
+    <div class="banner__title-group">
+      <h1 class="banner__title-primary">{{ header_title_1 }}</h1>
+      <h2 class="banner__title-secondary">{{ header_title_2 }}</h2>
     </div>
-    <div class="bannerdescription">
-      <p class="banner__description">
-        {{ section.settings.description1 }}
-      </p>
+    
+    {%- comment -%} Header Description {%- endcomment -%}
+    <div class="banner__header-description">
+      <p class="banner__description-text">{{ header_description }}</p>
     </div>
-    <div class="banner__button">
-      <a href="{{ section.settings.button_link }}" class="btn btn--primary">
-        {{ section.settings.button_text1 }}
-      </a>
+    
+    {%- comment -%} Header Call-to-Action {%- endcomment -%}
+    <div class="banner__header-button">
+      {%- if header_button_link != blank and header_button_text != blank -%}
+        <a href="{{ header_button_link }}" 
+           class="btn btn--primary"
+           aria-label="{{ header_button_text }} - {{ header_description }}">
+          {{ header_button_text }}
+          <span aria-hidden="true">→</span>
+        </a>
+      {%- endif -%}
     </div>
+    
   </header>
-  <body class="banner__body">
-  <div class="banner__image">
-    <img class="banner__image1" src="{{ 'banner_image.svg' | asset_url }}" alt="Banner 1">
-  </div>
-  <div class="banner__imagewithtext">
-    <div class="banner__text">
-      <h1 class="banner__text-title">
-        {{ section.settings.title3 }}
-      </h1>
-      <p class="banner__text-content">
-        {{ section.settings.description2 }}
-      </p>
-      <div class="banner__button">
-      <a href="{{ section.settings.button_link2 }}" class="btn btn--secondary">
-        {{ section.settings.button_text2 }}
-      </a>
+  
+  {%- comment -%} Main Content Body {%- endcomment -%}
+  <div class="banner__body">
+    
+    {%- comment -%} Full-Width Background Image {%- endcomment -%}
+    <div class="banner__background-image">
+      {%- assign bg_image = 'banner_image.svg' | asset_url -%}
+      <img class="banner__image-primary" 
+           src="{{ bg_image }}" 
+           alt="Banner background featuring gift items and accessories"
+           loading="eager"
+           width="1440" 
+           height="390">
     </div>
+    
+    {%- comment -%} Content Overlay with Text Box and Secondary Image {%- endcomment -%}
+    <div class="banner__content-overlay">
+      
+      {%- comment -%} Text Content Container {%- endcomment -%}
+      <div class="banner__text-container">
+        
+        {%- comment -%} Main Hero Title {%- endcomment -%}
+        {%- if main_title != blank -%}
+          <h2 class="banner__main-title">{{ main_title }}</h2>
+        {%- endif -%}
+        
+        {%- comment -%} Main Hero Description {%- endcomment -%}
+        {%- if main_description != blank -%}
+          <p class="banner__main-description">{{ main_description }}</p>
+        {%- endif -%}
+        
+        {%- comment -%} Main Call-to-Action Button {%- endcomment -%}
+        {%- if main_button_link != blank and main_button_text != blank -%}
+          <div class="banner__text-button">
+            <a href="{{ main_button_link }}" 
+               class="btn btn--secondary"
+               aria-label="{{ main_button_text }} - Explore our gift collection">
+              {{ main_button_text }}
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        {%- endif -%}
+        
+      </div>
+      
+      {%- comment -%} Secondary Promotional Image {%- endcomment -%}
+      <div class="banner__image-container">
+        {%- assign secondary_image = 'banner_image2.svg' | asset_url -%}
+        <img class="banner__image-secondary" 
+             src="{{ secondary_image }}" 
+             alt="Featured gift collection showcase"
+             loading="lazy"
+             width="435" 
+             height="293">
+      </div>
+      
     </div>
-    <img class="banner__image2" src="{{ 'banner_image.svg' | asset_url }}" alt="Banner 2">
+    
   </div>
-  </body>
   
 </section>
+
+{%- comment -%}
+  ========================================
+  SCHEMA CONFIGURATION
+  ========================================
+  
+  This schema defines the customizable settings for the banner section.
+  All settings include proper defaults and validation.
+{%- endcomment -%}
+
 {% schema %}
 {
-  "name": "Banner",
+  "name": "Banner Section",
+  "tag": "section",
+  "class": "banner-section",
   "settings": [
+    {
+      "type": "header",
+      "content": "Header Settings"
+    },
     {
       "type": "text",
       "id": "title1",
-      "label": "Title",
-      "default": "Tisso"
+      "label": "Brand Name (Primary)",
+      "default": "Tisso",
+      "info": "Main brand name displayed in header"
     },
     {
       "type": "text",
       "id": "title2",
-      "label": "Subtitle",
-      "default": "Vision"
+      "label": "Brand Name (Secondary)",
+      "default": "Vision",
+      "info": "Secondary brand name displayed in header"
     },
     {
       "type": "textarea",
       "id": "description1",
-      "label": "Description1",
-      "default": "Find the ideal gift for your loved ones."
+      "label": "Header Description",
+      "default": "Find the ideal gift for your loved ones.",
+      "info": "Short description displayed in header navigation"
     },
     {
       "type": "url",
       "id": "button_link1",
-      "label": "Button Link",
-      "default": "/collections/all"
+      "label": "Header Button Link",
+      "default": "/collections/all",
+      "info": "URL for the header call-to-action button"
     },
     {
       "type": "text",
       "id": "button_text1",
-      "label": "Button Text",
-      "default": "Choose Gift"
+      "label": "Header Button Text",
+      "default": "Choose Gift",
+      "info": "Text displayed on header button"
+    },
+    {
+      "type": "header",
+      "content": "Main Content Settings"
     },
     {
       "type": "text",
       "id": "title3",
-      "label": "Title",
-      "default": "The Gift Guide"
+      "label": "Main Hero Title",
+      "default": "The Gift Guide",
+      "info": "Large title displayed in the content box"
     },
     {
       "type": "textarea",
       "id": "description2",
-      "label": "Description2",
-      "default": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season."
+      "label": "Main Hero Description",
+      "default": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.",
+      "info": "Detailed description for the main content area"
     },
     {
       "type": "url",
       "id": "button_link2",
-      "label": "Button Link",
-      "default": "/collections/all"
+      "label": "Main Button Link",
+      "default": "/collections/all",
+      "info": "URL for the main call-to-action button"
     },
     {
       "type": "text",
       "id": "button_text2",
-      "label": "Button Text",
-      "default": "Shop Now"
+      "label": "Main Button Text",
+      "default": "Shop Now",
+      "info": "Text displayed on main CTA button"
     },
+    {
+      "type": "header",
+      "content": "Visual Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image",
+      "info": "Optional: Override default background image (banner_image.svg)"
+    },
+    {
+      "type": "image_picker",
+      "id": "secondary_image",
+      "label": "Secondary Image",
+      "info": "Optional: Override default secondary image (banner_image2.svg)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner Section",
+      "settings": {}
+    }
   ]
 }
 {% endschema %}
