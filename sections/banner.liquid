@@ -70,9 +70,9 @@
   {%- comment -%} Main Content Body {%- endcomment -%}
   <div class="banner__body">
     
-    {%- comment -%} Full-Width Background Image {%- endcomment -%}
+    {%- comment -%} Full-Width Top Background Image {%- endcomment -%}
     <div class="banner__background-image">
-      {%- assign bg_image = 'banner_image.svg' | asset_url -%}
+      {%- assign bg_image = section.settings.background_image | default: 'banner_image.svg' | asset_url -%}
       <img class="banner__image-primary" 
            src="{{ bg_image }}" 
            alt="Banner background featuring gift items and accessories"
@@ -81,10 +81,10 @@
            height="390">
     </div>
     
-    {%- comment -%} Content Overlay with Text Box and Secondary Image {%- endcomment -%}
+    {%- comment -%} Bottom Content Section with Text and Secondary Image {%- endcomment -%}
     <div class="banner__content-overlay">
       
-      {%- comment -%} Text Content Container {%- endcomment -%}
+      {%- comment -%} Text Content Container - Left Bottom {%- endcomment -%}
       <div class="banner__text-container">
         
         {%- comment -%} Main Hero Title {%- endcomment -%}
@@ -111,16 +111,14 @@
         
       </div>
       
-      {%- comment -%} Secondary Promotional Image {%- endcomment -%}
-      <div class="banner__image-container">
-        {%- assign secondary_image = 'banner_image.svg' | asset_url -%}
-        <img class="banner__image-secondary" 
-             src="{{ secondary_image }}" 
-             alt="Featured gift collection showcase"
-             loading="lazy"
-             width="435" 
-             height="293">
-      </div>
+      {%- comment -%} Secondary Image - Right Bottom with Exact Positioning {%- endcomment -%}
+      {%- assign secondary_image = section.settings.secondary_image | default: 'banner_image2.svg' | asset_url -%}
+      <img class="banner__image-secondary" 
+           src="{{ secondary_image }}" 
+           alt="Featured gift collection showcase"
+           loading="lazy"
+           width="890" 
+           height="402">
       
     </div>
     
