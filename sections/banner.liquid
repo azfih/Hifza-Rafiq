@@ -70,9 +70,9 @@
   {%- comment -%} Main Content Body {%- endcomment -%}
   <div class="banner__body">
     
-    {%- comment -%} Full-Width Top Background Image {%- endcomment -%}
+    {%- comment -%} Top Banner Image - RED OUTLINE POSITION {%- endcomment -%}
     <div class="banner__background-image">
-      {%- assign bg_image = section.settings.background_image | default: 'banner_image.svg' | asset_url -%}
+      {%- assign bg_image = 'banner_image.svg' | asset_url -%}
       <img class="banner__image-primary" 
            src="{{ bg_image }}" 
            alt="Banner background featuring gift items and accessories"
@@ -81,10 +81,10 @@
            height="390">
     </div>
     
-    {%- comment -%} Bottom Content Section with Text and Secondary Image {%- endcomment -%}
+    {%- comment -%} Bottom Content Section with Text and SAME Image {%- endcomment -%}
     <div class="banner__content-overlay">
       
-      {%- comment -%} Text Content Container - Left Bottom {%- endcomment -%}
+      {%- comment -%} Text Content Container - BLUE OUTLINE POSITION {%- endcomment -%}
       <div class="banner__text-container">
         
         {%- comment -%} Main Hero Title {%- endcomment -%}
@@ -111,11 +111,10 @@
         
       </div>
       
-      {%- comment -%} Secondary Image - Right Bottom with Exact Positioning {%- endcomment -%}
-      {%- assign secondary_image = section.settings.secondary_image | default: 'banner_image.svg' | asset_url -%}
+      {%- comment -%} SAME Banner Image Again - GREEN OUTLINE POSITION (overlapping is fine) {%- endcomment -%}
       <img class="banner__image-secondary" 
-           src="{{ secondary_image }}" 
-           alt="Featured gift collection showcase"
+           src="{{ bg_image }}" 
+           alt="Featured gift collection showcase - overlapping section"
            loading="lazy"
            width="890" 
            height="402">
@@ -226,7 +225,7 @@
       "type": "image_picker",
       "id": "secondary_image",
       "label": "Secondary Image",
-      "info": "Optional: Override default secondary image (banner_image.svg)"
+      "info": "Optional: Override default secondary image (banner_image2.svg)"
     }
   ],
   "presets": [

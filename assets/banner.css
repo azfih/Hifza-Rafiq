@@ -73,17 +73,17 @@
 .banner__body {
   position: relative;
   width: 100%;
-  height: 844px; /* Total height: 390px (top image) + 454px (bottom section) */
+  height: 844px; /* Total height to accommodate both sections */
   overflow: hidden;
 }
 
-/* Top Section - Background Image */
+/* Top Section - Red Outline Position */
 .banner__background-image {
   position: absolute;
-  top: 0; /* Starts right after 64px header */
+  top: 0; /* Right after 64px header - RED OUTLINE POSITION */
   left: 0;
   width: 100%;
-  height: 390px; /* Equal space - top half */
+  height: 390px;
   z-index: 1;
 }
 
@@ -96,36 +96,32 @@
   display: block;
 }
 
-/* Bottom Section - Content with Text and Image */
+/* Bottom Section - Content Area */
 .banner__content-overlay {
   position: absolute;
-  top: 390px; /* Starts after the top image */
+  top: 300px; /* Overlapping with top image */
   left: 0;
   width: 100%;
-  height: 454px; /* Equal space - bottom half */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  height: 544px;
   z-index: 5;
-  padding: 0;
-  background-color: #ffffff; /* Clean background for bottom section */
+  background: transparent; /* No background to allow overlap */
 }
 
-/* Text Content Box - Left Bottom */
+/* Text Content Box - Blue Outline Position */
 .banner__text-container {
   background-color: #ffffff;
   border-radius: 12px;
   padding: 40px 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  max-width: 500px;
   width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 300px;
   position: absolute;
-  left: 67px; /* Left positioning */
-  bottom: 52px; /* Bottom positioning within the section */
+  left: 67px; /* BLUE OUTLINE POSITION - Left side */
+  top: 50px;
+  z-index: 10;
 }
 
 .banner__main-title {
@@ -149,7 +145,7 @@
   align-self: flex-start;
 }
 
-/* Secondary Image - Right Bottom */
+/* Secondary Image - Green Outline Position (SAME IMAGE) */
 .banner__image-secondary {
   width: 890px;
   height: 402px;
@@ -157,8 +153,9 @@
   border-radius: 8px;
   opacity: 1;
   position: absolute;
-  top: 52px; /* 442px from overall top - 390px top section = 52px from section top */
-  left: 550px;
+  top: 142px; /* GREEN OUTLINE POSITION */
+  left: 550px; /* GREEN OUTLINE POSITION - Right side */
+  z-index: 2; /* Below text but above background */
 }
 
 /* ========================================
