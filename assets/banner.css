@@ -76,6 +76,12 @@
   display: flex;
   align-items: center;
 }
+.banner__image{
+    width: 1440;
+    height: 390;
+    top: 64px;
+    opacity: 1;
+}
 
 /* Button styles (add as needed) */
 .btn {
